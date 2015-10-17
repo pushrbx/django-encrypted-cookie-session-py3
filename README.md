@@ -32,7 +32,7 @@ Python 2.6 or higher is supported but Python 3 is untested.
 
 Install the module and its dependencies with pip:
 
-    pip install django-encrypted-cookie-session
+    pip install django-encrypted-cookie-session-py3
 
 If you have any trouble with the cryptography module, read through
 their [installation docs](https://cryptography.io/en/latest/installation/)
