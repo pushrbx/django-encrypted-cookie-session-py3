@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/pushrbx/django-encrypted-cookie-session-py3.svg)](https://travis-ci.org/pushrbx/django-encrypted-cookie-session-py3)
+
+I've modified this to work with python3. All credits goes to the original creator and stuff...
+
 Django Encrypted Session Cookie
 ===============================
 
