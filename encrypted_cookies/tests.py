@@ -127,7 +127,7 @@ class SessionStoreTests(Base):
     def test_use_encrypted_pickles(self, PicklerClass):
         pickler = mock.Mock()
         PicklerClass.return_value = pickler
-        pickler.dumps.return_value = '<data>'
+        pickler.dumps.return_value = '<data>'.encode("utf-8")
 
         self.sess.save()
         self.sess.load()
@@ -150,4 +150,4 @@ class TestKeygen(TestCase):
         key = stdout.getvalue()
         f = Fernet(key)
         # Make sure this doesn't raise an error about a bad key.
-        f.decrypt(f.encrypt('whatever'))
+        f.decrypt(f.encrypt('whatever'.encode('utf-8')))

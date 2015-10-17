@@ -30,9 +30,6 @@
   <component name="ProjectResources">
     <default-html-doctype>http://www.w3.org/1999/xhtml</default-html-doctype>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_5" assert-keyword="true" jdk-15="true" project-jdk-name="Python 2.6 virtualenv at ~/env/django-encrypted-cookie-session" project-jdk-type="Python SDK">
-    <output url="file://$PROJECT_DIR$/out" />
-  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.4.3 virtualenv at C:\Users\thoma\djecpy3" project-jdk-type="Python SDK" />
   <component name="WebServicesPlugin" addRequiredLibraries="true" />
 </project>
-

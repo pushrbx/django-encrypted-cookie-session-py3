@@ -36,7 +36,8 @@ class EncryptingPickleSerializer(PickleSerializer):
         if getattr(settings, 'COMPRESS_ENCRYPTED_COOKIE', False):
             level = getattr(settings, 'ENCRYPTED_COOKIE_COMPRESSION_LEVEL', 6)
             raw_data = zlib.compress(raw_data, level)
-        return crypto.encrypt(raw_data)
+
+        return bytes(crypto.encrypt(raw_data))
 
     def loads(self, data):
         decrypted_data = crypto.decrypt(data)
@@ -94,4 +95,4 @@ class SessionStore(django.contrib.sessions.backends.signed_cookies.SessionStore)
                 'encrypted session cookie is too large for most browsers; '
                 'size: %s' % cookie_size)
 
-        return data
+        return data.encode("utf-8")
