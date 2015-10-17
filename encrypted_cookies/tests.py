@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # (c) 2013 Bright Interactive Limited. All rights reserved.
 # http://www.bright-interactive.com | info@bright-interactive.com
-import cStringIO
+import io
 
 from django.core import signing
 from django.core.exceptions import ImproperlyConfigured
@@ -90,7 +90,7 @@ class SessionStoreTests(Base):
             stor = self.sess.load()
 
         # The decryption error is ignored and the session is reset.
-        self.assertEqual(dict(stor.items()), {})
+        self.assertEqual(dict(list(stor.items())), {})
 
     def test_key_rotation(self):
         key1 = Fernet.generate_key()
@@ -103,7 +103,7 @@ class SessionStoreTests(Base):
                                                   key1]):
             stor = self.sess.load()
 
-        self.assertEqual(dict(stor.items()), {'secret': 'laser beams'})
+        self.assertEqual(dict(list(stor.items())), {'secret': 'laser beams'})
 
     @mock.patch('encrypted_cookies.signing.loads')
     def test_bad_signature(self, loader):
@@ -112,7 +112,7 @@ class SessionStoreTests(Base):
         self.sess.save()
         stor = self.sess.load()
         # The BadSignature error is ignored and the session is reset.
-        self.assertEqual(dict(stor.items()), {})
+        self.assertEqual(dict(list(stor.items())), {})
 
     @mock.patch('encrypted_cookies.signing.loads')
     def test_bad_signing_value(self, loader):
@@ -121,7 +121,7 @@ class SessionStoreTests(Base):
         self.sess.save()
         stor = self.sess.load()
         # The ValueError is ignored and the session is reset.
-        self.assertEqual(dict(stor.items()), {})
+        self.assertEqual(dict(list(stor.items())), {})
 
     @mock.patch('encrypted_cookies.EncryptingPickleSerializer')
     def test_use_encrypted_pickles(self, PicklerClass):
@@ -141,10 +141,10 @@ class SessionStoreTests(Base):
 class TestKeygen(TestCase):
 
     def test_generate_key(self):
-        stdout = cStringIO.StringIO()
+        stdout = io.StringIO()
         try:
             keygen.main(stdout=stdout, argv=[])
-        except SystemExit, exc:
+        except SystemExit as exc:
             self.assertEqual(exc.code, 0)
 
         key = stdout.getvalue()
