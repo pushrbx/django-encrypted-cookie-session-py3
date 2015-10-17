@@ -13,7 +13,7 @@ def main(stdout=sys.stdout, argv=sys.argv[1:]):
               'Generates a suitable value to put in '
               'your ENCRYPTED_COOKIE_KEYS=[...] setting.')
     (options, args) = p.parse_args(argv)
-    stdout.write(Fernet.generate_key().decode('utf-8'))
+    stdout.write(Fernet.generate_key())
 
 
 if __name__ == '__main__':
