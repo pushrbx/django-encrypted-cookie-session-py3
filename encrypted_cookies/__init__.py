@@ -95,4 +95,4 @@ class SessionStore(django.contrib.sessions.backends.signed_cookies.SessionStore)
                 'encrypted session cookie is too large for most browsers; '
                 'size: %s' % cookie_size)
 
-        return data.encode("utf-8")
+        return ''.join(chr(int(x)) for x in data.encode("utf-8"))
