@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/pushrbx/django-encrypted-cookie-session-py3.svg)](https://travis-ci.org/pushrbx/django-encrypted-cookie-session-py3)  [![PyPI](https://img.shields.io/pypi/v/nine.svg)](https://pypi.python.org/pypi/django-encrypted-cookie-session-py3)
+[![Build Status](https://travis-ci.org/pushrbx/django-encrypted-cookie-session-py3.svg)](https://travis-ci.org/pushrbx/django-encrypted-cookie-session-py3)  [![PyPI](https://img.shields.io/pypi/v/django-encrypted-cookie-session-py3.svg)](https://pypi.python.org/pypi/django-encrypted-cookie-session-py3)
 
 I've modified this to work with python3. All credits goes to the original creator and stuff...
 Dependencies also changed:    
